@@ -31,13 +31,13 @@ func main() {
 		log.Fatalf("failed parsing flags: %v", err)
 	}
 
-	grpcListener, err := net.Listen("tcp", fmt.Sprintf("127.0.0.1:%d", *grpcPort))
+	grpcListener, err := net.Listen("tcp", fmt.Sprintf(":%d", *grpcPort))
 	if err != nil {
-		log.Fatalf("failed listening on 127.0.0.1:%d: %v", *grpcPort, err)
+		log.Fatalf("failed listening on :%d: %v", *grpcPort, err)
 	}
-	httpListener, err := net.Listen("tcp", fmt.Sprintf("127.0.0.1:%d", *httpPort))
+	httpListener, err := net.Listen("tcp", fmt.Sprintf(":%d", *httpPort))
 	if err != nil {
-		log.Fatalf("failed listening on 127.0.0.1:%d: %v", *httpPort, err)
+		log.Fatalf("failed listening on :%d: %v", *httpPort, err)
 	}
 
 	grpclog.SetLogger(log.StandardLogger())
